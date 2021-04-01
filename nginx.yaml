@@ -5,45 +5,12 @@ metadata:
     deployment.kubernetes.io/revision: "1"
     field.cattle.io/creatorId: user-thqmh
     field.cattle.io/publicEndpoints: '[{"port":30855,"protocol":"TCP","serviceName":"default:nginx","allNodes":true}]'
-  creationTimestamp: "2021-04-01T12:49:49Z"
+  creationTimestamp: "2021-04-01T13:01:18Z"
   generation: 2
   labels:
     cattle.io/creator: norman
     workload.user.cattle.io/workloadselector: deployment-default-nginx
   managedFields:
-  - apiVersion: apps/v1
-    fieldsType: FieldsV1
-    fieldsV1:
-      f:metadata:
-        f:annotations:
-          f:deployment.kubernetes.io/revision: {}
-      f:status:
-        f:availableReplicas: {}
-        f:conditions:
-          .: {}
-          k:{"type":"Available"}:
-            .: {}
-            f:lastTransitionTime: {}
-            f:lastUpdateTime: {}
-            f:message: {}
-            f:reason: {}
-            f:status: {}
-            f:type: {}
-          k:{"type":"Progressing"}:
-            .: {}
-            f:lastTransitionTime: {}
-            f:lastUpdateTime: {}
-            f:message: {}
-            f:reason: {}
-            f:status: {}
-            f:type: {}
-        f:observedGeneration: {}
-        f:readyReplicas: {}
-        f:replicas: {}
-        f:updatedReplicas: {}
-    manager: k3s
-    operation: Update
-    time: "2021-04-01T12:49:59Z"
   - apiVersion: apps/v1
     fieldsType: FieldsV1
     fieldsV1:
@@ -109,11 +76,44 @@ metadata:
             f:terminationGracePeriodSeconds: {}
     manager: rancher
     operation: Update
-    time: "2021-04-01T12:50:16Z"
+    time: "2021-04-01T13:01:18Z"
+  - apiVersion: apps/v1
+    fieldsType: FieldsV1
+    fieldsV1:
+      f:metadata:
+        f:annotations:
+          f:deployment.kubernetes.io/revision: {}
+      f:status:
+        f:availableReplicas: {}
+        f:conditions:
+          .: {}
+          k:{"type":"Available"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+          k:{"type":"Progressing"}:
+            .: {}
+            f:lastTransitionTime: {}
+            f:lastUpdateTime: {}
+            f:message: {}
+            f:reason: {}
+            f:status: {}
+            f:type: {}
+        f:observedGeneration: {}
+        f:readyReplicas: {}
+        f:replicas: {}
+        f:updatedReplicas: {}
+    manager: k3s
+    operation: Update
+    time: "2021-04-01T13:01:24Z"
   name: nginx
   namespace: default
-  resourceVersion: "4307"
-  uid: 372e154c-43d0-4652-b943-8330d1dfa32c
+  resourceVersion: "6368"
+  uid: 250e3548-bdd5-4934-8902-63f7317f2f59
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -129,8 +129,8 @@ spec:
   template:
     metadata:
       annotations:
-        cattle.io/timestamp: "2021-04-01T12:49:49Z"
-        field.cattle.io/ports: '[[{"containerPort":80,"dnsName":"nginx-nodeport","hostPort":0,"kind":"NodePort","name":"http","protocol":"TCP","sourcePort":80}]]'
+        cattle.io/timestamp: "2021-04-01T13:01:18Z"
+        field.cattle.io/ports: '[[{"containerPort":80,"dnsName":"nginx","hostPort":0,"kind":"ClusterIP","name":"a","protocol":"TCP","sourcePort":0}]]'
       creationTimestamp: null
       labels:
         workload.user.cattle.io/workloadselector: deployment-default-nginx
@@ -141,7 +141,7 @@ spec:
         name: nginx
         ports:
         - containerPort: 80
-          name: http
+          name: a
           protocol: TCP
         resources: {}
         securityContext:
@@ -162,15 +162,15 @@ spec:
 status:
   availableReplicas: 1
   conditions:
-  - lastTransitionTime: "2021-04-01T12:49:59Z"
-    lastUpdateTime: "2021-04-01T12:49:59Z"
+  - lastTransitionTime: "2021-04-01T13:01:24Z"
+    lastUpdateTime: "2021-04-01T13:01:24Z"
     message: Deployment has minimum availability.
     reason: MinimumReplicasAvailable
     status: "True"
     type: Available
-  - lastTransitionTime: "2021-04-01T12:49:49Z"
-    lastUpdateTime: "2021-04-01T12:49:59Z"
-    message: ReplicaSet "nginx-6564f554f9" has successfully progressed.
+  - lastTransitionTime: "2021-04-01T13:01:18Z"
+    lastUpdateTime: "2021-04-01T13:01:24Z"
+    message: ReplicaSet "nginx-6fb79d7476" has successfully progressed.
     reason: NewReplicaSetAvailable
     status: "True"
     type: Progressing
